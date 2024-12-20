@@ -15,7 +15,9 @@ A tool to generate a free text query dataset from LLM and NLP toolkit.
 # https://packaging.python.org/en/latest/specifications/dependency-specifiers/#dependency-specifiers
 dependencies = [
   "click",
-  "openai>=1.58.1"
+  "ipython",
+  "openai>=1.58.1",
+  "pydantic>=2.10.4"
 ]
 
 authors = [

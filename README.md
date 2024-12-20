@@ -4,7 +4,9 @@ An experimental augmented query dataset generation with the NLP toolkit and LLM.
 
 ## Prerequisites
 
-TBD
+Generate OpenAI API key and store it in your environment variable `OPENAI_API_KEY`. The project when runs will look up from this variable. Make sure you have sufficient API credit.
+
+To choose the OpenAI model for text generation, set your environment variable `OPENAI_API_MODEL`. See [OpenAI section](#openai) to find the model you prefer.
 
 ## Install and Run
 
@@ -22,7 +24,23 @@ python -m aquda --help
 
 ## Query Generation from LLM
 
-TBD
+Try generating your first search query
+
+```sh
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish -lgerman --size=1
+```
+
+or with debugging interactive IPython
+
+```sh
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish -lgerman --size=1 --debug
+```
+
+Generate queries for specific topic
+
+```sh
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=1 --topic="christmas gift to buy in online store"
+```
 
 ## Query Augmentation
 
@@ -67,9 +85,6 @@ o1            200K context    Knowledge of October 2023 cutoff. Most powerful re
                               supports structured inputs.
 ```
 
-### API Key
-
-Generate OpenAI API key and store it in your environment variable `OPENAI_API_KEY`. The project when runs will look up from this variable. Make sure you have sufficient API credit.
 
 ## Licence
 
