@@ -1,4 +1,5 @@
 import os
+import sys
 from openai import OpenAI
 from typing import Any
 
@@ -27,6 +28,10 @@ def make_prompts(lang: str, num: int, topic: str, debug: bool) -> list[dict[str,
 def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool) -> list[query.Query]:
     # https://platform.openai.com/docs/api-reference/introduction
     model = os.environ.get(OPENAI_MODEL)
+    if model is None:
+        # No we don't decide the fallback model for anyone
+        sys.stderr.write(f'{colour.RED}Missing model in env var{colour.DEFAULT}')
+        raise ValueError(f'Missing model name in env var: {OPENAI_MODEL}')
     completion = client.beta.chat.completions.parse(
         model = model,
         messages = make_prompts(lang, num, topic, debug),
