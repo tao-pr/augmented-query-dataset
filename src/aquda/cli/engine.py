@@ -22,7 +22,7 @@ def run_cli(
         return -1
     elif run_mode == run_modes.RunMode.GENERATOR:
         return run_generator(lang, silence, size)
-    elif run_mode == run_modes.RunMode.AUGEMENTOR:
+    elif run_mode == run_modes.RunMode.AUGMENTOR:
         return run_augmentor(lang, silence, size)
     elif run_mode == run_modes.RunMode.VALIDATOR:
         return run_validator(lang, silence)
@@ -36,7 +36,7 @@ def get_run_mode(gen: bool, aug: bool, validate: bool) -> run_modes.RunMode:
     if gen:
         return run_modes.RunMode.GENERATOR
     if aug:
-        return run_modes.RunMode.AUGEMENTOR
+        return run_modes.RunMode.AUGMENTOR
     if validate:
         return run_modes.RunMode.VALIDATOR
 
