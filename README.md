@@ -8,7 +8,17 @@ TBD
 
 ## Install and Run
 
-TBD
+Install locally from source (editable)
+
+```sh
+python -m install -e .
+```
+
+Lookup the command arguments
+
+```sh
+python -m aquda --help
+```
 
 ## Query Generation from LLM
 
