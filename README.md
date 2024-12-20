@@ -1,6 +1,6 @@
 # Augmented Query Dataset
 
-An experimental augmented query dataset generation with the NLP toolkit and LLM. The project packaging follows [PEP 621](https://peps.python.org/pep-0621/).
+An experimental augmented query dataset generation with the NLP toolkit and LLM. The project packaging follows [PEP 621](https://peps.python.org/pep-0621/), however it is not yet 
 
 ## Prerequisites
 
@@ -63,4 +63,4 @@ Generate OpenAI API key and store it in your environment variable `OPENAI_API_KE
 
 ## Licence
 
-TBD
+GNU

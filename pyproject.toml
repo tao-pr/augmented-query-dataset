@@ -1,9 +1,9 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-dependencies = [
-  "openai>=1.58.1"
-]
+# NOTE: [project.scripts] is not supported by setuptools
+# it will just require a package entry point
+# https://setuptools.pypa.io/en/latest/userguide/entry_point.html#entry-points
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "aquda" # augmented query dataset
@@ -11,6 +11,11 @@ version = "0.1.0"
 description = """
 A tool to generate a free text query dataset from LLM and NLP toolkit.
 """
+
+# https://packaging.python.org/en/latest/specifications/dependency-specifiers/#dependency-specifiers
+dependencies = [
+  "openai>=1.58.1"
+]
 
 authors = [
   { name = "Tao Ruangyam", email = "tao.ruangyam@zalando.de" }
@@ -23,7 +28,7 @@ maintainers = [
 readme = "README.md"
 license = { file = "LICENSE" }
 
-requires-python = ">=3.8.2"
+requires-python = ">=3.13.0"
 
 # https://pypi.org/classifiers/
 classifiers = [
@@ -35,11 +40,8 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License (GPL)",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
+
+
 
