@@ -36,10 +36,16 @@ or with debugging interactive IPython
 OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish -lgerman --size=1 --debug
 ```
 
-Generate queries for specific topic
+Generate queries for specific topic (turn off verbose)
 
 ```sh
-OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=1 --topic="christmas gift to buy in online store"
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=5 --topic="christmas gift to buy in online store" -s
+```
+
+You can try crafting your prompt via topic parameter.
+
+```sh
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish -lgerman -lthai --size=15 --topic="outfits or clothings in online store. please also add brand specific to some search queries if possible, also try different types of queries from users from various demographical groups" --silence
 ```
 
 ## Query Augmentation

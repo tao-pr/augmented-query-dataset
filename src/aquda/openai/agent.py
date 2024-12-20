@@ -15,17 +15,17 @@ def create() -> object:
         api_key = os.environ.get(OPENAI_KEY),
     )
 
-def make_prompts(lang: str, num: int, topic: str, debug: bool) -> list[dict[str, str]]:
+def make_prompts(lang: str, num: int, topic: str, debug: bool, silence: bool) -> list[dict[str, str]]:
     # just simple prompt
     content = f'Generate {num} sample search queries in {', '.join(lang)} language the real user would use to search for {topic}'
-    if debug:
+    if not silence:
         print(f'{colour.CYAN}{colour.BOLD}Prompt:{colour.DEFAULT} {content}')
     return [{
         'role': 'developer',
         'content': content
     }]
 
-def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool) -> list[query.Query]:
+def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool, silence: bool) -> list[query.Query]:
     # https://platform.openai.com/docs/api-reference/introduction
     model = os.environ.get(OPENAI_MODEL)
     if model is None:
@@ -34,7 +34,7 @@ def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool) ->
         raise ValueError(f'Missing model name in env var: {OPENAI_MODEL}')
     completion = client.beta.chat.completions.parse(
         model = model,
-        messages = make_prompts(lang, num, topic, debug),
+        messages = make_prompts(lang, num, topic, debug, silence),
         response_format = query.QuerySet
     )
     return completion

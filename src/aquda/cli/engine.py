@@ -55,14 +55,14 @@ def run_generator(lang: list[str], silence: bool, debug: bool, size: int, topic:
         print(f'Model to use: {os.environ.get(agent.OPENAI_MODEL)}')
         print(f'Generating {size} queries in {lang}')
 
-    completion = agent.gen_queries(client, lang, size, topic, debug)
+    completion = agent.gen_queries(client, lang, size, topic, debug, silence)
     # taotodo handle failure
     out = completion.choices[0].message.parsed
     if debug:
         IPython.embed()
     
     # JSONify the response
-    print(out.model_dump())
+    print(out.model_dump_json(indent = 2))
     return out
 
 def run_validator(lang: list[str], silence: bool, debug: bool, size: int):
