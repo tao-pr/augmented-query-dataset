@@ -62,6 +62,16 @@ The augmentation picks the generated query set and apply the following linguisti
 - Language Translation Variants
 - Adding / Replacing Modifiers
 
+First of all, you need to generate the queries into a JSON file (don't forget to add `--silence` or `-s`). Then run aquda package in augmentation mode on this input.
+
+```sh
+# Generation to file
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=10 --topic="christmas gift to buy in online store" -s > query.json
+
+# Run data augmentation with OpenAI API
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug --file=query.json --engine=openai
+```
+
 ## OpenAI
 
 The project uses [OpenAI API](https://platform.openai.com/docs/overview) to generate an initial set of sample queries from a specific domain with various intents. As of the time of writing this, the [pricing](https://openai.com/api/pricing/) of the API is as listed below.

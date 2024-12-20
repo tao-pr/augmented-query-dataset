@@ -3,29 +3,50 @@ from enum import Enum
 
 # See readme (query augmentation section)
 class VariantType(Enum):
-    LEMMA = 1
-    SYN_REPL = 2
-    POS_REORD = 3
-    SPELLING = 4
-    HYPERNYM = 5
-    HYPONYM = 6
-    ACRONYM = 7
-    NER_SYN = 8
-    TRANSL = 9
-    MODIF = 10
+    LEMMA = 'Lemmatization or word stemming'
+    SYN_REPL = 'Synynym replacement'
+    POS_REORD = 'Part-of-speech re-ordering'
+    SPELLING = 'Spelling or Misspelling variants'
+    HYPERNYM = 'Hypernym'
+    HYPONYM = 'Hyponym'
+    ACRONYM = 'Acronym expansion or collapse'
+    NER_SYN = 'Synonym or similar term with Named-entity-recognition'
+    TRANSL = 'Language translation'
+    MODIF = 'Adding or replacement of common modifiers'
+
+PARAM_MAP = {
+    'lemma' : VariantType.LEMMA,
+    'syn-repl': VariantType.SYN_REPL,
+    'pos-reord': VariantType.POS_REORD,
+    'spelling': VariantType.SPELLING,
+    'hypernym': VariantType.HYPERNYM,
+    'hyponym': VariantType.HYPONYM,
+    'acronym': VariantType.ACRONYM,
+    'ner-syn': VariantType.NER_SYN,
+    'transl': VariantType.TRANSL,
+    'modif': VariantType.MODIF
+}
+
+PARAMS = list(PARAM_MAP.keys())
 
 # https://platform.openai.com/docs/guides/structured-outputs
-class QueryVariant(BaseModel):
-    query: str
-    lang: str
-    variant_type: VariantType
-
 class Query(BaseModel):
     original: str
     lang: str
 
 class QuerySet(BaseModel):
     queries: list[Query]
+
+class VariantElement(BaseModel):
+    text: str
+    lang: str
+    variant_type: VariantType
+
+class QueryVariant(Query):
+    variants: list[VariantElement]
+
+class QueryVariantSet(BaseModel):
+    queries: list[QueryVariant]
 
 
 

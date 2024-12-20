@@ -1,5 +1,4 @@
 import os
-import sys
 from openai import OpenAI
 from typing import Any
 
@@ -25,12 +24,21 @@ def make_prompts(lang: str, num: int, topic: str, debug: bool, silence: bool) ->
         'content': content
     }]
 
+def make_augmenting_prompts(num: int, orig: str, method: str, debug: bool, silence: bool) -> list[dict[str, str]]:
+    # just simple prompt
+    content = f'Generate {num} additional search queries from "{orig}" by applying {method}'
+    if not silence:
+        print(f'{colour.CYAN}{colour.BOLD}Prompt:{colour.DEFAULT} {content}')
+    return [{
+        'role': 'developer',
+        'content': content
+    }]
+
 def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool, silence: bool) -> list[query.Query]:
     # https://platform.openai.com/docs/api-reference/introduction
     model = os.environ.get(OPENAI_MODEL)
     if model is None:
         # No we don't decide the fallback model for anyone
-        sys.stderr.write(f'{colour.RED}Missing model in env var{colour.DEFAULT}')
         raise ValueError(f'Missing model name in env var: {OPENAI_MODEL}')
     completion = client.beta.chat.completions.parse(
         model = model,
@@ -39,6 +47,16 @@ def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool, si
     )
     return completion
 
-def augment_query(orig: query.Query, typ: query.VariantType, num: int) -> list[query.QueryVariant]:
-    pass # taotodo
+def augment_query(client: object, orig: query.Query, typ: query.VariantType, 
+                  num: int, debug: bool, silence: bool) -> list[query.QueryVariant]:
+    model = os.environ.get(OPENAI_MODEL)
+    if model is None:
+        # No we don't decide the fallback model for anyone
+        raise ValueError(f'Missing model name in env var: {OPENAI_MODEL}')
+    completion = client.beta.chat.completions.parse(
+        model = model,
+        messages = make_augmenting_prompts(num, orig.original, typ, debug, silence),
+        response_format = query.QueryVariantSet
+    )
+    return completion
 
