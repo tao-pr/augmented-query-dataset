@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+dependencies = [
+  "openai>=1.58.1"
+]
+
+[project]
+name = "aquda" # augmented query dataset
+version = "0.1.0"
+description = """
+A tool to generate a free text query dataset from LLM and NLP toolkit.
+"""
+
+authors = [
+  { name = "Tao Ruangyam", email = "tao.ruangyam@zalando.de" }
+]
+
+maintainers = [
+  { name = "Tao Ruangyam", email = "tao.ruangyam@zalando.de" }
+]
+
+readme = "README.md"
+license = { file = "LICENSE" }
+
+requires-python = ">=3.8.2"
+
+# https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Framework :: IPython",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
