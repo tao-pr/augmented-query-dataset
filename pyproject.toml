@@ -18,7 +18,8 @@ dependencies = [
   "ipython",
   "nltk>=3.9.1",
   "openai>=1.58.1",
-  "pydantic>=2.10.4"
+  "pydantic>=2.10.4",
+  "spacy"
 ]
 
 authors = [
@@ -32,7 +33,7 @@ maintainers = [
 readme = "README.md"
 license = { file = "LICENSE" }
 
-requires-python = ">=3.13.0"
+requires-python = "==3.12.*"
 
 # https://pypi.org/classifiers/
 classifiers = [
@@ -44,7 +45,7 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License (GPL)",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.12",
 ]
 
 

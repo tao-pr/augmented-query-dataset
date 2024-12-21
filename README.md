@@ -125,6 +125,10 @@ o1            200K context    Knowledge of October 2023 cutoff. Most powerful re
                               supports structured inputs.
 ```
 
+## Development Notes
+
+[Spacy unfortunately fails to install on Python 3.13](https://github.com/explosion/spaCy/issues/13658) regardless of the Operating system due to their dependencies including `thic` and `srsly` don't build. This project therefore pins to python version 3.12.
+
 
 ## Licence
 
