@@ -4,7 +4,7 @@ from enum import Enum
 # See readme (query augmentation section)
 class VariantType(Enum):
     LEMMA = 'Lemmatization or word stemming'
-    SYN_REPL = 'Synynym replacement'
+    SYN_REPL = 'Synonym replacement'
     POS_REORD = 'Part-of-speech re-ordering'
     SPELLING = 'Spelling or Misspelling variants'
     HYPERNYM = 'Hypernym'

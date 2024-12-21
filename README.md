@@ -16,6 +16,12 @@ Install locally from source (editable)
 python -m install -e .
 ```
 
+If one of the packages fail during installation, consider upgrading your build tools with
+
+```sh
+python -m pip install --upgrade pip setuptools wheel
+```
+
 Lookup the command arguments
 
 ```sh
