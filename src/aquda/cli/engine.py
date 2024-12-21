@@ -17,8 +17,8 @@ from ..text import query, processor
 @click.option('--file', type=str, help='Specify an input query JSON file to process')
 @click.option('-e', '--engine', type=click.Choice(['openai', 'lib']), default='lib',
               help='Augmentation engine to use' )
-@click.option('-a', '--augmentor', type=click.Choice(query.PARAMS), default='lemma',
-              help='Pick one of the augmentation techniques')
+@click.option('-a', '--augmentor', multiple=True, type=click.Choice(query.PARAMS), 
+              default=['lemma'], help='A linguistic technique to use for data augmentation.')
 @click.option('-t', '--topic', default='sport', help='Context or topic to generate queries')
 @click.option('-s', '--silence', is_flag=True, default=False, help='Only display final output.')
 @click.option('-d', '--debug', is_flag=True, default=False, help='Enable interactive IPython prompt.')
@@ -31,10 +31,14 @@ def run_cli(
     topic: str,
     file: str,
     engine: str,
-    augmentor: str,
+    augmentor: list[str],
     debug: bool,
     size: int) -> int:
     run_mode = get_run_mode(gen, aug, validate)
+
+    lang = set(lang)
+    augmentor = set(augmentor)
+
     if run_mode == run_modes.RunMode.UNKNOWN:
         return -1
     elif run_mode == run_modes.RunMode.GENERATOR:
@@ -75,7 +79,7 @@ def run_generator(lang: list[str], silence: bool, debug: bool, size: int, topic:
     return out
 
 def run_augmentor(lang: list[str], silence: bool, debug: bool, size: int, 
-                  file: str, engine: str, augmentor: str) -> query.QuerySet:
+                  file: str, engine: str, augmentor: set[query.VariantType]) -> query.QuerySet:
     fullpath = os.path.expanduser(file)
     aug = processor.get(engine, augmentor, lang)
 

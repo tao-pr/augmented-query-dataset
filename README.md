@@ -39,13 +39,16 @@ OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish -lgerman --size=1 
 Generate queries for specific topic (turn off verbose)
 
 ```sh
-OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=5 --topic="christmas gift to buy in online store" -s
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=5 \
+--topic="christmas gift to buy in online store" -s
 ```
 
 You can try crafting your prompt via topic parameter.
 
 ```sh
-OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish -lgerman -lthai --size=15 --topic="outfits or clothings in online store. please also add brand specific to some search queries if possible, also try different types of queries from users from various demographical groups" --silence
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen \
+-lenglish -lgerman -lthai --size=15 \
+--topic="outfits or clothings in online store. please also add brand specific to some search queries if possible, also try different types of queries from users from various demographical groups" --silence
 ```
 
 ## Query Augmentation
@@ -66,10 +69,18 @@ First of all, you need to generate the queries into a JSON file (don't forget to
 
 ```sh
 # Generation to file
-OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=10 --topic="christmas gift to buy in online store" -s > query.json
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=10 \
+--topic="christmas gift to buy in online store" -s > query.json
 
 # Run data augmentation with OpenAI API
 OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug --file=query.json --engine=openai
+```
+
+Augment the query dataset with hypernyms, hyponyms, synonym replacements with OpenAI
+
+```sh
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug --file=query.json --engine=openai \
+-ahyponym -ahypernym -asyn-repl
 ```
 
 ## OpenAI

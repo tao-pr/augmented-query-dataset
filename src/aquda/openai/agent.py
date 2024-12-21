@@ -24,9 +24,12 @@ def make_prompts(lang: str, num: int, topic: str, debug: bool, silence: bool) ->
         'content': content
     }]
 
-def make_augmenting_prompts(num: int, orig: str, method: str, debug: bool, silence: bool) -> list[dict[str, str]]:
+def make_augmenting_prompts(num: int, orig: str, vtypes: set[query.VariantType], 
+                            debug: bool, silence: bool) -> list[dict[str, str]]:
     # just simple prompt
-    content = f'Generate {num} additional search queries from "{orig}" by applying {method}'
+    variants = ''.join(vtypes) if len(vtypes) == 1 \
+        else ', '.join([f'[{i+1}] {v}' for i, v in enumerate(vtypes)]) + ' randomly'
+    content = f'Generate {num} additional search queries from "{orig}" by applying {variants}'
     if not silence:
         print(f'{colour.CYAN}{colour.BOLD}Prompt:{colour.DEFAULT} {content}')
     return [{
@@ -47,7 +50,7 @@ def gen_queries(client: object, lang: str, num: int, topic: str, debug: bool, si
     )
     return completion
 
-def augment_query(client: object, orig: query.Query, typ: query.VariantType, 
+def augment_query(client: object, orig: query.Query, typs: set[query.VariantType], 
                   num: int, debug: bool, silence: bool) -> list[query.QueryVariant]:
     model = os.environ.get(OPENAI_MODEL)
     if model is None:
@@ -55,7 +58,7 @@ def augment_query(client: object, orig: query.Query, typ: query.VariantType,
         raise ValueError(f'Missing model name in env var: {OPENAI_MODEL}')
     completion = client.beta.chat.completions.parse(
         model = model,
-        messages = make_augmenting_prompts(num, orig.original, typ, debug, silence),
+        messages = make_augmenting_prompts(num, orig.original, typs, debug, silence),
         response_format = query.QueryVariantSet
     )
     return completion
