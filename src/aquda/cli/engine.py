@@ -14,7 +14,8 @@ from ..text import query, processor
 @click.option('-aug', is_flag=True, default=False, help='Data augmentation mode')
 @click.option('-validate', is_flag=True, default=False, help='Data validation mode')
 @click.option('--size', type=int, default=10, help='Size of dataset to generate or augment per language')
-@click.option('--file', type=str, help='Specify an input query JSON file to process')
+@click.option('--read', type=str, default=None, help='Specify an input query JSON file to process (UTF-8)')
+@click.option('--write', type=str, default=None, help='Specify an output JSON file to write to (UTF-8)')
 @click.option('-e', '--engine', type=click.Choice(['openai', 'lib']), default='lib',
               help='Augmentation engine to use' )
 @click.option('-a', '--augmentor', multiple=True, type=click.Choice(query.PARAMS), 
@@ -29,7 +30,8 @@ def run_cli(
     gen: bool, aug: bool, validate: bool, 
     lang: list[str], silence: bool,
     topic: str,
-    file: str,
+    read: str | None,
+    write: str | None,
     engine: str,
     augmentor: list[str],
     debug: bool,
@@ -42,9 +44,9 @@ def run_cli(
     if run_mode == run_modes.RunMode.UNKNOWN:
         return -1
     elif run_mode == run_modes.RunMode.GENERATOR:
-        return run_generator(lang, silence, debug, size, topic)
+        return run_generator(lang, silence, debug, size, topic, write)
     elif run_mode == run_modes.RunMode.AUGMENTOR:
-        return run_augmentor(lang, silence, debug, size, file, engine, augmentor)
+        return run_augmentor(lang, silence, debug, size, read, write, engine, augmentor)
     elif run_mode == run_modes.RunMode.VALIDATOR:
         return run_validator(lang, silence, debug)
     return 0
@@ -61,7 +63,8 @@ def get_run_mode(gen: bool, aug: bool, validate: bool) -> run_modes.RunMode:
     if validate:
         return run_modes.RunMode.VALIDATOR
 
-def run_generator(lang: list[str], silence: bool, debug: bool, size: int, topic: str) -> query.QuerySet:
+def run_generator(lang: list[str], silence: bool, debug: bool, size: int, 
+                  topic: str, output_path: str | None) -> query.QuerySet:
     client = agent.create()
     if not silence:
         print(f'Model to use: {os.environ.get(agent.OPENAI_MODEL)}')
@@ -75,20 +78,26 @@ def run_generator(lang: list[str], silence: bool, debug: bool, size: int, topic:
         IPython.embed()
     
     # JSONify the response
-    print(out.model_dump_json(indent = 2))
+    out_json = out.model_dump_json(indent = 2)
+    print(out_json)
+    if output_path is not None:
+        output_path = os.path.expanduser(output_path)
+        with open(output_path, 'w') as f:
+            f.write(out_json)
     return out
 
 def run_augmentor(lang: list[str], silence: bool, debug: bool, size: int, 
-                  file: str, engine: str, augmentor: set[query.VariantType]) -> query.QuerySet:
-    fullpath = os.path.expanduser(file)
+                  input_path: str, output_path: str | None, 
+                  engine: str, augmentor: set[query.VariantType]) -> query.QuerySet:
+    input_path = os.path.expanduser(input_path)
     aug = processor.get(engine, augmentor, lang)
 
-    if not os.path.exists(fullpath):
-        raise FileNotFoundError(f'File not found: {fullpath}')
+    if not os.path.exists(input_path):
+        raise FileNotFoundError(f'File not found: {input_path}')
     if not silence:
-        print(f'Augmenting query file: {fullpath} with {engine} ({aug})')
+        print(f'Augmenting query file: {input_path} with {engine} ({aug})')
     
-    with open(fullpath, 'r') as f:
+    with open(input_path, 'r') as f:
         qs = query.QuerySet.model_validate(from_json(f.read()))
 
     if debug:
@@ -105,7 +114,14 @@ def run_augmentor(lang: list[str], silence: bool, debug: bool, size: int,
             IPython.embed()
         qvs.queries += out.queries 
 
-    print(qvs.model_dump_json(indent = 2))
+    out_json = qvs.model_dump_json(indent = 2)
+    print(out_json)
+
+    if output_path is not None:
+        output_path = os.path.expanduser(output_path)
+        with open(output_path, 'w') as f:
+            f.write(out_json)
+
     return qvs
 
 def run_validator(lang: list[str], silence: bool, debug: bool, size: int):

@@ -68,19 +68,26 @@ The augmentation picks the generated query set and apply the following linguisti
 First of all, you need to generate the queries into a JSON file (don't forget to add `--silence` or `-s`). Then run aquda package in augmentation mode on this input.
 
 ```sh
-# Generation to file
+# Generation to a JSON file
 OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen -lenglish --size=10 \
---topic="christmas gift to buy in online store" -s > query.json
+--topic="christmas gift to buy in online store" -s --write=query.json
 
 # Run data augmentation with OpenAI API
-OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug --file=query.json --engine=openai
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug \
+--read=sample-queries/queries-en-de-christmas-gifts.json \
+--engine=openai \
+--write=augmented-queries-en-de-christmas-gifts.json
 ```
 
 Augment the query dataset with hypernyms, hyponyms, synonym replacements with OpenAI
 
 ```sh
-OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug --file=query.json --engine=openai \
--ahyponym -ahypernym -asyn-repl
+OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug \
+--read=sample-queries/queries-en-de-christmas-gifts.json \
+--engine=openai \
+-ahyponym -ahypernym -asyn-repl \
+--size=10 \
+--write=augmented-queries-en-de-christmas-gifts.json
 ```
 
 ## OpenAI
