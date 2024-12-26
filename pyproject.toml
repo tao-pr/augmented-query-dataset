@@ -19,7 +19,7 @@ dependencies = [
   "nltk>=3.9.1",
   "openai>=1.58.1",
   "pydantic>=2.10.4",
-  "spacy"
+  "spacy>=3.7.2"
 ]
 
 authors = [

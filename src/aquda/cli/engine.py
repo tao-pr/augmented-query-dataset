@@ -16,8 +16,9 @@ from ..text import query, processor
 @click.option('--size', type=int, default=10, help='Size of dataset to generate or augment per language')
 @click.option('--read', type=str, default=None, help='Specify an input query JSON file to process (UTF-8)')
 @click.option('--write', type=str, default=None, help='Specify an output JSON file to write to (UTF-8)')
-@click.option('-e', '--engine', type=click.Choice(['openai', 'lib']), default='lib',
-              help='Augmentation engine to use' )
+@click.option('-e', '--engine', type=click.Choice(['openai', 'spacy-trf', 'spacy-lg']), 
+              default='spacy-lg',
+              help='Augmentation engine to use.' )
 @click.option('-a', '--augmentor', multiple=True, type=click.Choice(query.PARAMS), 
               default=['lemma'], help='A linguistic technique to use for data augmentation.')
 @click.option('-t', '--topic', default='sport', help='Context or topic to generate queries')
@@ -86,11 +87,11 @@ def run_generator(lang: list[str], silence: bool, debug: bool, size: int,
             f.write(out_json)
     return out
 
-def run_augmentor(lang: list[str], silence: bool, debug: bool, size: int, 
+def run_augmentor(lang: set[str], silence: bool, debug: bool, size: int, 
                   input_path: str, output_path: str | None, 
                   engine: str, augmentor: set[query.VariantType]) -> query.QuerySet:
     input_path = os.path.expanduser(input_path)
-    aug = processor.get(engine, augmentor, lang)
+    aug = processor.get(engine, augmentor, lang, silence)
 
     if not os.path.exists(input_path):
         raise FileNotFoundError(f'File not found: {input_path}')
@@ -108,7 +109,7 @@ def run_augmentor(lang: list[str], silence: bool, debug: bool, size: int,
     qvs = query.QueryVariantSet(queries = [])
     for q in qs.queries:
         completion = aug.process(q, size, debug, silence)
-        out = completion.choices[0].message.parsed
+        out = aug.parse_output(completion)
         if debug:
             print(f'{colour.CYAN}Augmenting query: {colour.DEFAULT}{q}')
             IPython.embed()

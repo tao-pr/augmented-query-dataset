@@ -5,7 +5,6 @@ from enum import Enum
 class VariantType(Enum):
     LEMMA = 'Lemmatization or word stemming'
     SYN_REPL = 'Synonym replacement'
-    POS_REORD = 'Part-of-speech re-ordering'
     SPELLING = 'Spelling or Misspelling variants'
     HYPERNYM = 'Hypernym'
     HYPONYM = 'Hyponym'
@@ -17,7 +16,6 @@ class VariantType(Enum):
 PARAM_MAP = {
     'lemma' : VariantType.LEMMA,
     'syn-repl': VariantType.SYN_REPL,
-    'pos-reord': VariantType.POS_REORD,
     'spelling': VariantType.SPELLING,
     'hypernym': VariantType.HYPERNYM,
     'hyponym': VariantType.HYPONYM,

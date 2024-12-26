@@ -63,7 +63,6 @@ The augmentation picks the generated query set and apply the following linguisti
 
 - Lemmatization / Stemming
 - Synonym Replacement
-- POS Re-ordering
 - Spelling Correction and Misspelling Variants
 - Hypernyms and Hyponyms
 - Acronym Variants
@@ -94,6 +93,21 @@ OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -aug \
 -ahyponym -ahypernym -asyn-repl \
 --size=10 \
 --write=augmented-queries-en-de-christmas-gifts.json
+```
+
+Alternatively, augment the query dataset with Spacy (Wordnet).
+
+> NOTE: [sm] and [md] (small and medium) models are not fully suitable for vector similarity which is required in augmentation. Especially the small models, they are not shipped with word vectors.
+
+```sh
+# requires: (400MB)
+# python -m spacy download en_core_web_lg
+
+python -m aquda -aug \
+--read=sample-queries/queries-en-fashion-clothes.json \
+--engine=spacy-lg \
+-alemma \
+--write=augmented-queries-en-christmas-gifts.json
 ```
 
 ## OpenAI
