@@ -109,7 +109,17 @@ python -m aquda -aug \
 --read=sample-queries/queries-en-fashion-clothes.json \
 --engine=spacy \
 -alemma \
---write=augmented-queries-en-christmas-gifts.json
+--write=augmented-queries-en-fashion-clothes.json
+```
+
+Augment the dataset which combines multiple languages (Wordnet).
+
+```sh
+python -m aquda -aug \
+--read=sample-queries/queries-en-de-christmas-gifts.json \
+--engine=spacy \
+-alemma \
+--write=augmented-queries-en-de-christmas-gifts.json
 ```
 
 ## OpenAI
