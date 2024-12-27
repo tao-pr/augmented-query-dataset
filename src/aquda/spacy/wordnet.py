@@ -2,12 +2,13 @@ import spacy
 import numpy as np
 
 from ..text import query
+from ..cli import colour
 
-def create(model: str, lang: str, silence: bool) -> object:
+def create(model: str, lang: set[str], silence: bool) -> object:
     # Follow a convention from https://spacy.io/models#conventions
     model_name = f'{lang}_core_web_{model}'
     if not silence:
-        print(f'Loading Spacy model: {model_name}')
+        print(f'{colour.CYAN}Loading Spacy model:{colour.DEFAULT} {model_name}')
     nlp = spacy.load(model_name)
     return nlp
 

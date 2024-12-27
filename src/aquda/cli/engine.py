@@ -47,7 +47,8 @@ def run_cli(
     elif run_mode == run_modes.RunMode.GENERATOR:
         return run_generator(lang, silence, debug, size, topic, write)
     elif run_mode == run_modes.RunMode.AUGMENTOR:
-        return run_augmentor(lang, silence, debug, size, read, write, engine, augmentor)
+        print(f'{colour.HIGHLIGHTED_GREY_LIGHT}WARNING:{colour.DEFAULT} Language parameter will be ignored. The languages from the input query dataset will be used.')
+        return run_augmentor(silence, debug, size, read, write, engine, augmentor)
     elif run_mode == run_modes.RunMode.VALIDATOR:
         return run_validator(lang, silence, debug)
     return 0
@@ -87,19 +88,26 @@ def run_generator(lang: list[str], silence: bool, debug: bool, size: int,
             f.write(out_json)
     return out
 
-def run_augmentor(lang: set[str], silence: bool, debug: bool, size: int, 
+def run_augmentor(silence: bool, debug: bool, size: int, 
                   input_path: str, output_path: str | None, 
                   engine: str, augmentor: set[query.VariantType]) -> query.QuerySet:
     input_path = os.path.expanduser(input_path)
-    aug = processor.get(engine, augmentor, lang, silence)
 
     if not os.path.exists(input_path):
         raise FileNotFoundError(f'File not found: {input_path}')
     if not silence:
-        print(f'Augmenting query file: {input_path} with {engine} ({aug})')
+        print(f'Augmenting query file: {input_path} with {engine}')
     
     with open(input_path, 'r') as f:
         qs = query.QuerySet.model_validate(from_json(f.read()))
+
+    # Collect all available languages of the input queries
+    # and create augmentator of all those
+    input_langs = set(map(lambda q: q.lang, qs.queries))
+    if not silence:
+        print(f'Languages to use: {input_langs}')
+
+    aug = processor.get(engine, augmentor, input_langs, silence)
 
     if debug:
         print(f'{colour.CYAN}Running run_augmentor, try inspecting qs{colour.DEFAULT}')
