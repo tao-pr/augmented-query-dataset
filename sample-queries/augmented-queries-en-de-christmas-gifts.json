@@ -1,0 +1,235 @@
+{
+  "queries": [
+    {
+      "original": "best Christmas gifts for kids",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "good Christmas gift for kid",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "weihnachtsgeschenke für die Familie",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "weihnachtsgeschenke für der Familie",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "unique Christmas gifts for her",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "unique Christmas gift for she",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "innovative Weihnachtsgeschenke",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "innovativ Weihnachtsgeschenk",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "what to buy for Christmas presents",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "what to buy for Christmas present",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Geschenke zu Weihnachten für Männer",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Geschenk zu Weihnachten für Mann",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "top Christmas gifts 2023",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "top Christmas gift 2023",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Beliebte Marken für Weihnachtsgeschenke",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Beliebte Marke für Weihnachtsgeschenk",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "personalized Christmas gifts for grandma",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "personalize Christmas gift for grandma",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Handmade Weihnachtsgeschenke online",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Handmade Weihnachtsgeschenk online",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Christmas gift ideas for teenagers",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "Christmas gift idea for teenager",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Modetrends für Weihnachtsgeschenke",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Modetrend für Weihnachtsgeschenk",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "buying gifts online for Christmas",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "buy gift online for Christmas",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Technik Gadgets als Weihnachtsgeschenk",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Technik Gadget als Weihnachtsgeschenk",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "affordable Christmas gifts",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "affordable Christmas gift",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Luxus Weihnachtsgeschenke für ihn",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Luxus Weihnachtsgeschenk für ihn",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "creative Christmas gift wrapping ideas",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "creative Christmas gift wrap idea",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "weihnachtsgeschenke günstig kaufen",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "weihnachtsgeschenke günstig kaufen",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "last minute Christmas gift ideas",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "last minute Christmas gift idea",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "Kreative Geschenke zu Weihnachten",
+      "lang": "de",
+      "variants": [
+        {
+          "text": "Kreative Geschenk zu Weihnachten",
+          "lang": "de",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    },
+    {
+      "original": "find gifts under 50 dollars for Christmas",
+      "lang": "en",
+      "variants": [
+        {
+          "text": "find gift under 50 dollar for Christmas",
+          "lang": "en",
+          "variant_type": "Lemmatization or word stemming"
+        }
+      ]
+    }
+  ]
+}
