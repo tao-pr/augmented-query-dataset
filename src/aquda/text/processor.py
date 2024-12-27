@@ -1,8 +1,9 @@
 import os
 from collections.abc import Callable
+from pydantic_core import from_json
 
 from ..openai import agent
-from ..spacy import wordnet
+from ..spacy import wordnet, conf
 from ..text import query
 from ..cli import colour
 
@@ -57,6 +58,11 @@ class SpacyAugmentor(Augmentor):
             if not silence:
                 print(f'{colour.CYAN}Applying {vtype}, lang={q.lang}: {colour.DEFAULT}{q.original}')
             processed = self.VMAP[vtype](q.lang, self.apis[q.lang], q.original)
+
+            if debug:
+                print(f'Processing variant = {vtype}, try inspecting `q`, `processed`')
+                import IPython
+                IPython.embed()
             
             if output_variant is None:
                 output_variant = processed
@@ -74,12 +80,15 @@ class SpacyAugmentor(Augmentor):
 
 # lang is only used for language translation mode
 def get(engine: str, vtypes: set[query.VariantType], lang: set[str], silence: bool) -> Augmentor:
-    if engine.startswith('spacy-'):
-        model = engine.split('-')[-1] # suffix of the engine will be used as a suffix of spacy model
-
+    if engine == 'spacy':
+        with open('spacy.conf', 'r') as f:
+            config = conf.Conf.model_validate(from_json(f.read()))
+        
         # load Spacy models, one per language
-        api_by_lang: dict[str, object] = {lng: wordnet.create(model, lng, silence) \
-                                          for lng in lang}
+        api_by_lang: dict[str, object] = {lng: wordnet.create(config.langs[lng].model, \
+                                                              silence) \
+                                                                for lng in lang}
+        
         return SpacyAugmentor(api_by_lang, vtypes)
     elif engine == 'openai':
         client = agent.create()

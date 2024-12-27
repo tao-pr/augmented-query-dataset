@@ -16,8 +16,8 @@ from ..text import query, processor
 @click.option('--size', type=int, default=10, help='Size of dataset to generate or augment per language')
 @click.option('--read', type=str, default=None, help='Specify an input query JSON file to process (UTF-8)')
 @click.option('--write', type=str, default=None, help='Specify an output JSON file to write to (UTF-8)')
-@click.option('-e', '--engine', type=click.Choice(['openai', 'spacy-trf', 'spacy-lg']), 
-              default='spacy-lg',
+@click.option('-e', '--engine', type=click.Choice(['openai', 'spacy']), 
+              default='spacy',
               help='Augmentation engine to use.' )
 @click.option('-a', '--augmentor', multiple=True, type=click.Choice(query.PARAMS), 
               default=['lemma'], help='A linguistic technique to use for data augmentation.')
