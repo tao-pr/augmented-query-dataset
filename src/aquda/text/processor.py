@@ -1,4 +1,3 @@
-import os
 from collections.abc import Callable
 from pydantic_core import from_json
 
@@ -42,14 +41,15 @@ class SpacyAugmentor(Augmentor):
         self.apis = apis
         self.vtypes = vtypes
         self.VMAP: dict[str, Callable[[str, object, str], query.QueryVariant]] = {
-            'lemma': wordnet.lemmatize
+            'lemma': wordnet.lemmatize,
+            'syn-repl': wordnet.synonym_repl,
         }
         self.SUPPORTED_VTYPES = self.VMAP.keys()
 
     def process(self, q: query.Query, num: int, 
                 debug: bool, silence: bool, **kwargs) -> query.QueryVariant:
         if any([v not in self.SUPPORTED_VTYPES for v in self.vtypes]):
-            raise ValueError(f'Some variant types are not supported by Spacy. It only supports any of {[v.name for v in self.SUPPORTED_VTYPES]}. (Got {self.vtypes} instead)')
+            raise ValueError(f'Some variant types are not supported by Spacy. It only supports any of {self.SUPPORTED_VTYPES}. (Got {self.vtypes} instead)')
         
         output_variant = None
         if not silence:

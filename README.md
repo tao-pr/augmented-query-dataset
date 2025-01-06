@@ -57,6 +57,17 @@ OPENAI_API_MODEL="gpt-4o-mini" python -m aquda -gen \
 --topic="outfits or clothings in online store. please also add brand specific to some search queries if possible, also try different types of queries from users from various demographical groups" --silence
 ```
 
+## Merge Query Files
+
+When generating multiple query files, you may want to merge them into one. Use `-merge` run mode with `-m` argument to specify multiple input JSON query files. The program will not deduplicate queries.
+
+```sh
+python -m aquda -merge \
+-m sample-queries/queries-en-de-gr-fr-trendy-shoes-\[4o\].json \
+-m sample-queries/queries-en-de-gr-fr-trendy-shoes.json \
+--write=merged.json
+```
+
 ## Query Augmentation
 
 The augmentation picks the generated query set and apply the following linguistic methods.
@@ -150,6 +161,10 @@ gpt-4o mini   n/a             Smarter than gpt-3.5 turbo
 o1            200K context    Knowledge of October 2023 cutoff. Most powerful reasoning model.
                               supports structured inputs.
 ```
+
+## Known Issues
+
+Or limitations: Query generation with LLM may not always satisfy `size` parameters. Despite specifying size argument of 100, the API may generate just up to 80 items.
 
 ## Development Notes
 
