@@ -3,6 +3,7 @@ from enum import Enum
 
 # See readme (query augmentation section)
 class VariantType(Enum):
+    ORIGINAL = 'Original' # reserved for wordnet.synonym_repl()
     LEMMA = 'Lemmatization or word stemming'
     SYN_REPL = 'Synonym replacement'
     SPELLING = 'Spelling or Misspelling variants'

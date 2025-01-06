@@ -30,6 +30,11 @@ def similar_of(nlp: object, tokens: set[str], num: int=2) -> dict[str, set[str]]
 
     # https://spacy.io/api/vectors#most_similar
     vectors = np.array([vector_of(nlp, t) for t in tokens]) # multiple tokens at once
+
+    if vectors.size == 0:
+        print(f'zeros most similar vectors of tokens: {colour.GREY_DARK}{tokens}{colour.DEFAULT}')
+        return dict()
+
     neighs = nlp.vocab.vectors.most_similar(vectors, n=num)
 
     nindexes, _, nscores = neighs
@@ -70,9 +75,40 @@ def synonym_repl(lang: str, nlp: object, text: str) -> query.QueryVariant:
     def clean(w: str, swords: list[str]) -> list[str]:
         return list(set(sw.lemma_ for sw in nlp(get_spacer(lang).join(swords)) if sw.lemma_ != w))
 
+    """
+    similar_words: expanded synonyms or close neighbours through vectorspace.
+    They could look like:
+
+    {'best': ['most', 'great', 'good'],
+    'Christmas': ['christmas', 'valentine', 'xmas', 'easter'],
+    'gifts': ['gift', 'valentines', 'gifting'],
+    'for': ['make', 'and', 'with'],
+    'kids': ['kid', 'child', 'toddler']}
+    """
     similar_words = { w: clean(w, swords) for w, swords in similar_words.items() }
-    # taotodo here
+
+    # Only these POSes will be expanded with synonyms
+    REPL_POS = {'DT', 'CC', 'IN', 'JJ', 'JJS', 'JJR', 'NN', 'NNS', 'NNP', 'NNPS', 
+                'PDT', 'PRP$', 'RB', 'RBR', 'RBS', 'UH', 'VB', 'VBD', 'VBG', 'VBN',
+                'VBP', 'VBZ'}
 
     # POS tag + NER and replacement of other synnonyms
-    pass
+    output = query.QueryVariant(
+        original = text,
+        lang = lang,
+        variants = []
+        )
+    ttokens = [tok.text for tok in doc] # text tokens
+    for i, tok in enumerate(doc):
+        if tok.tag_ in REPL_POS:
+            if tok.text in similar_words:
+                for syn in similar_words[tok.text]:
+                    variant = query.VariantElement(
+                        text = get_spacer(lang).join(ttokens[:i] + [syn] + ttokens[i+1:]),
+                        lang = lang,
+                        variant_type = query.VariantType.SYN_REPL
+                    )
+                    output.variants.append(variant)
+    
+    return output
 
