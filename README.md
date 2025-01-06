@@ -111,9 +111,9 @@ Alternatively, augment the query dataset with Spacy (Wordnet).
 > NOTE: [sm] and [md] (small and medium) models are not fully suitable for vector similarity which is required in augmentation. Especially the small models, they are not shipped with word vectors.
 
 ```sh
-# requires: (400MB each roughly)
+# requires: (400-600MB each roughly)
 # python -m spacy download en_core_web_lg
-# python -m spacy download de_dep_news_trf
+# python -m spacy download de_core_news_lg
 # python -m spacy download el_core_news_lg
 
 python -m aquda -aug \
