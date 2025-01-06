@@ -173,4 +173,4 @@ Or limitations: Query generation with LLM may not always satisfy `size` paramete
 
 ## Licence
 
-GNU
+GPLv3
