@@ -44,15 +44,17 @@ def run_cli(
     run_mode = get_run_mode(gen, aug, validate, merge)
 
     lang = set(lang)
-    augmentor = set(augmentor)
+    augmentor = set(map(query.from_str, augmentor))
 
     if run_mode == run_modes.RunMode.UNKNOWN:
         return -1
     elif run_mode == run_modes.RunMode.GENERATOR:
         return run_generator(lang, silence, debug, size, topic, write)
     elif run_mode == run_modes.RunMode.AUGMENTOR:
-        print(f'{colour.HIGHLIGHTED_GREY_LIGHT}WARNING:{colour.DEFAULT} Language parameter will be ignored. The languages from the input query dataset will be used.')
-        return run_augmentor(silence, debug, size, read, write, engine, augmentor)
+        # Only translation with LLM takes language parameter
+        if 'transl' not in augmentor or engine != 'openai':
+            print(f'{colour.HIGHLIGHTED_GREY_LIGHT}WARNING:{colour.DEFAULT} Language parameter will be ignored. The languages from the input query dataset will be used.')
+        return run_augmentor(silence, debug, size, read, write, engine, augmentor, lang)
     elif run_mode == run_modes.RunMode.VALIDATOR:
         return run_validator(lang, silence, debug)
     elif run_mode == run_modes.RunMode.MERGER:
@@ -98,7 +100,8 @@ def run_generator(lang: list[str], silence: bool, debug: bool, size: int,
 
 def run_augmentor(silence: bool, debug: bool, size: int, 
                   input_path: str, output_path: str | None, 
-                  engine: str, augmentor: set[query.VariantType]) -> query.QuerySet:
+                  engine: str, augmentor: set[query.VariantType],
+                  lang: list[str] | None) -> query.QuerySet:
     input_path = os.path.expanduser(input_path)
 
     if not os.path.exists(input_path):
@@ -124,7 +127,7 @@ def run_augmentor(silence: bool, debug: bool, size: int,
     # Process each query
     qvs = query.QueryVariantSet(queries = [])
     for q in qs.queries:
-        completion = aug.process(q, size, debug, silence)
+        completion = aug.process(q, size, debug, silence, lang)
         out = aug.parse_output(completion)
         if debug:
             print(f'{colour.CYAN}Augmenting query: {colour.DEFAULT}{q}')

@@ -28,6 +28,16 @@ PARAM_MAP = {
 
 PARAMS = list(PARAM_MAP.keys())
 
+def to_str(lang: set[str] | None, vtype: VariantType) -> list[str]:
+    if vtype == VariantType.TRANSL:
+        return [f'{vtype.value} to {ln}' for ln in lang or []]
+    else:
+        return [vtype.value]
+    
+
+def from_str(s: str) -> VariantType:
+    return PARAM_MAP[s]
+
 # https://platform.openai.com/docs/guides/structured-outputs
 class Query(BaseModel):
     original: str

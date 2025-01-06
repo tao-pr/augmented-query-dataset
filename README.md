@@ -133,6 +133,16 @@ python -m aquda -aug \
 --write=augmented-queries-en-de-christmas-gifts.json
 ```
 
+Translation of queries from foreign languages into English. This could be done via OpenAI.
+
+```sh
+OPENAI_API_MODEL="gpt-4o" python -m aquda -aug \
+--read=sample-queries/queries-de-bg-collectibles-\[4o\]-2.json \
+--engine=openai \
+-atransl -lenglish \
+--write=translated-queries-en-collectibles-\[4o\]-2.json
+```
+
 ## OpenAI
 
 The project uses [OpenAI API](https://platform.openai.com/docs/overview) to generate an initial set of sample queries from a specific domain with various intents. As of the time of writing this, the [pricing](https://openai.com/api/pricing/) of the API is as listed below.

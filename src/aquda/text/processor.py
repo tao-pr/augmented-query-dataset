@@ -7,7 +7,8 @@ from ..text import query
 from ..cli import colour
 
 class Augmentor(object):
-    def process(self, query: query.Query, num: int, debug: bool, silence: bool, **kwargs) -> str:
+    def process(self, query: query.Query, num: int, 
+                debug: bool, silence: bool, lang: set[str] | None, **kwargs) -> str:
         pass
 
     def parse_output(self, output: object) -> query.QueryVariantSet:
@@ -20,14 +21,16 @@ class OpenAIAugmentor(Augmentor):
         self.vtypes = vtypes
         self.lang = lang
 
-    def process(self, query: query.Query, num: int, debug: bool, silence: bool, **kwargs) -> str:
+    def process(self, query: query.Query, num: int, 
+                debug: bool, silence: bool, lang: set[str] | None, **kwargs) -> str:
         return agent.augment_query(
             self.client,
             query,
             self.vtypes,
             num,
             debug,
-            silence
+            silence,
+            lang
         )
     
     def parse_output(self, completion: object) -> query.QueryVariantSet:
@@ -47,7 +50,8 @@ class SpacyAugmentor(Augmentor):
         self.SUPPORTED_VTYPES = self.VMAP.keys()
 
     def process(self, q: query.Query, num: int, 
-                debug: bool, silence: bool, **kwargs) -> query.QueryVariant:
+                debug: bool, silence: bool,
+                lang: set[str] | None, **kwargs) -> query.QueryVariant:
         if any([v not in self.SUPPORTED_VTYPES for v in self.vtypes]):
             raise ValueError(f'Some variant types are not supported by Spacy. It only supports any of {self.SUPPORTED_VTYPES}. (Got {self.vtypes} instead)')
         
@@ -79,7 +83,8 @@ class SpacyAugmentor(Augmentor):
         )
 
 # lang is only used for language translation mode
-def get(engine: str, vtypes: set[query.VariantType], lang: set[str], silence: bool) -> Augmentor:
+def get(engine: str, vtypes: set[query.VariantType], 
+        lang: set[str], silence: bool) -> Augmentor:
     if engine == 'spacy':
         with open('spacy.conf', 'r') as f:
             config = conf.Conf.model_validate(from_json(f.read()))

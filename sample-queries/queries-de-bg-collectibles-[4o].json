@@ -1,0 +1,904 @@
+{
+  "queries": [
+    {
+      "original": "редки римски монети за продажба",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас живописни картини",
+      "lang": "bg"
+    },
+    {
+      "original": "унални марки и цената им",
+      "lang": "bg"
+    },
+    {
+      "original": "купувам редки винтидж часовници",
+      "lang": "bg"
+    },
+    {
+      "original": "антични монети от България",
+      "lang": "bg"
+    },
+    {
+      "original": "Египетски артефакти на търг",
+      "lang": "bg"
+    },
+    {
+      "original": "редки книги първо издание",
+      "lang": "bg"
+    },
+    {
+      "original": "инвестиция в колекционерски обувки",
+      "lang": "bg"
+    },
+    {
+      "original": "уникални дизайнерски украси за дома",
+      "lang": "bg"
+    },
+    {
+      "original": "стари български банкноти",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас бижута на търг",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничена серия порцеланови фигурки",
+      "lang": "bg"
+    },
+    {
+      "original": "ретро мебели и тяхната стойност",
+      "lang": "bg"
+    },
+    {
+      "original": "пазар за уникални картини в България",
+      "lang": "bg"
+    },
+    {
+      "original": "стойност на антични колекции",
+      "lang": "bg"
+    },
+    {
+      "original": "български икони за продажба",
+      "lang": "bg"
+    },
+    {
+      "original": "редки пътуващи тройки монети",
+      "lang": "bg"
+    },
+    {
+      "original": "лимитирани обувки за колекция",
+      "lang": "bg"
+    },
+    {
+      "original": "картини от ренесанса на търг",
+      "lang": "bg"
+    },
+    {
+      "original": "купувам уникални спортни меморабилия",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас порцеланови съдове",
+      "lang": "bg"
+    },
+    {
+      "original": "антични гръцки монети за продан",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на часовници",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски предмети за инвестиция",
+      "lang": "bg"
+    },
+    {
+      "original": "исторически карти и тяхната стойност",
+      "lang": "bg"
+    },
+    {
+      "original": "купувам изключителни стари мебели",
+      "lang": "bg"
+    },
+    {
+      "original": "антични скулптури на търг",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас езерала",
+      "lang": "bg"
+    },
+    {
+      "original": "винтидж музикални инструменти",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на спортни обувки",
+      "lang": "bg"
+    },
+    {
+      "original": "шикозни дамски чанти от известни дизайнери",
+      "lang": "bg"
+    },
+    {
+      "original": "сребърни римски денарии на продажба",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас колекция от вина",
+      "lang": "bg"
+    },
+    {
+      "original": "унални пощенски картички",
+      "lang": "bg"
+    },
+    {
+      "original": "висококачествени исторически печати",
+      "lang": "bg"
+    },
+    {
+      "original": "антични персийски килими",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени серии на дизайнерски лампи",
+      "lang": "bg"
+    },
+    {
+      "original": "ценни минерали и кристали",
+      "lang": "bg"
+    },
+    {
+      "original": "винтидж картини от български художници",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на фотоапарати",
+      "lang": "bg"
+    },
+    {
+      "original": "уникални антични часовници",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на ювелирни изделия",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас колекционерски печатащи издания",
+      "lang": "bg"
+    },
+    {
+      "original": "купувам антични научни инструменти",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничена серия скулптури от бронз",
+      "lang": "bg"
+    },
+    {
+      "original": "висококачествени класически автомобили",
+      "lang": "bg"
+    },
+    {
+      "original": "антични японски самурайски мечове",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на френски вина",
+      "lang": "bg"
+    },
+    {
+      "original": "уникални ръчно изработени обувки",
+      "lang": "bg"
+    },
+    {
+      "original": "редки живописни портрети",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас антични мебели",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на златни монети",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на съвременни скулптури",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски предмети от знаменитости",
+      "lang": "bg"
+    },
+    {
+      "original": "купувам антични венециански огледала",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на класически часовници",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на илюстровани книги",
+      "lang": "bg"
+    },
+    {
+      "original": "антични индийски текстили",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас изобразителни изкуства",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на луксозни автомобили",
+      "lang": "bg"
+    },
+    {
+      "original": "изключителни скулптури на художници от модернизма",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски площи от исторически събития",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на театрални постери",
+      "lang": "bg"
+    },
+    {
+      "original": "антични шахматни комплекти",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на автомобилни аксесоари",
+      "lang": "bg"
+    },
+    {
+      "original": "редки винтови касети и тяхната стойност",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на винтидж рокли",
+      "lang": "bg"
+    },
+    {
+      "original": "връзка за колекционери на пуговици",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на ръчни часовници",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на дизайнерски фонари",
+      "lang": "bg"
+    },
+    {
+      "original": "сребърни ковани прибори за продажба",
+      "lang": "bg"
+    },
+    {
+      "original": "униални първи издания на книги",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас скулптури в бронз",
+      "lang": "bg"
+    },
+    {
+      "original": "антични китайски вази",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на худи",
+      "lang": "bg"
+    },
+    {
+      "original": "уникални древни пергаменти",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас художествено стъкло",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на 3D принтирани обекти",
+      "lang": "bg"
+    },
+    {
+      "original": "антични римски бижута",
+      "lang": "bg"
+    },
+    {
+      "original": "висококачествени фотографски принтове",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на етикети за вино",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на пластмасови модели",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на наивни картини",
+      "lang": "bg"
+    },
+    {
+      "original": "антики и колекционерски декоративни предмети",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на мехови палта",
+      "lang": "bg"
+    },
+    {
+      "original": "калаени войнишки фигурки",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на филмова музика",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на технологични устройства",
+      "lang": "bg"
+    },
+    {
+      "original": "философски издания за ценители",
+      "lang": "bg"
+    },
+    {
+      "original": "уникати от модерно изкуство",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на напълно ръчно изработени изделия",
+      "lang": "bg"
+    },
+    {
+      "original": "антични германски печати",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на метални скулптури",
+      "lang": "bg"
+    },
+    {
+      "original": "униални копринени платове",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на редки вещества",
+      "lang": "bg"
+    },
+    {
+      "original": "антични картини на продажба",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас керамични творби",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на текстилни изделия",
+      "lang": "bg"
+    },
+    {
+      "original": "антични мебели с резба",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на парфюми",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на тематични подаръци",
+      "lang": "bg"
+    },
+    {
+      "original": "ретро автомобилни емблеми",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на домашни декорации",
+      "lang": "bg"
+    },
+    {
+      "original": "антични бронзови статуи",
+      "lang": "bg"
+    },
+    {
+      "original": "висок клас винилови плочи",
+      "lang": "bg"
+    },
+    {
+      "original": "ретро електронни устройства за колекционери",
+      "lang": "bg"
+    },
+    {
+      "original": "антични бижута с инкрустирани камъни",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на декорирани вази",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на картини с мастилена техника",
+      "lang": "bg"
+    },
+    {
+      "original": "антични гравюри",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на съвременни орнаменти",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски кукли",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на тематични часовници",
+      "lang": "bg"
+    },
+    {
+      "original": "уникални ръчно рисувани плакати",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на винтидж винтови касети",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски китари",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на съвременни антологии",
+      "lang": "bg"
+    },
+    {
+      "original": "колекция от старо злато за инвестиция",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на скъпоценни монети",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на течни фигури в бутилки",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски химикалки",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на спортни блейзери",
+      "lang": "bg"
+    },
+    {
+      "original": "антични текстилни яйца",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени заглавия на уникални книги",
+      "lang": "bg"
+    },
+    {
+      "original": "ретро автомобили",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на стари кинематографични ленти",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на испански мозаики",
+      "lang": "bg"
+    },
+    {
+      "original": "винтидж дамски брошки",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на тематични фигурки",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски чайници",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на сребърни прибори за маса",
+      "lang": "bg"
+    },
+    {
+      "original": "антични лещи за камери",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на етнографски облекла",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на чаени сервизи",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски великденски яйца",
+      "lang": "bg"
+    },
+    {
+      "original": "ексклузивна колекция от стари винили",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на тематични аксесоари",
+      "lang": "bg"
+    },
+    {
+      "original": "антични български шевици",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на съвременни фотоалбуми",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски грамофони",
+      "lang": "bg"
+    },
+    {
+      "original": "старинни морски секстанци",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на миниатюрни маси",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени серии на класически офис мебели",
+      "lang": "bg"
+    },
+    {
+      "original": "колекционерски липетки",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на традиционни японски кимона",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на уникални колички",
+      "lang": "bg"
+    },
+    {
+      "original": "ограничени издания на стара картография",
+      "lang": "bg"
+    },
+    {
+      "original": "антикварни туники",
+      "lang": "bg"
+    },
+    {
+      "original": "ograrische Geräte",
+      "lang": "de"
+    },
+    {
+      "original": "alte Porträtmalerei kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Sammleruhren entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "hochwertige antike Statuen im Angebot",
+      "lang": "de"
+    },
+    {
+      "original": "seltene Bücher erste Auflagen kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Accessoires für Sammler",
+      "lang": "de"
+    },
+    {
+      "original": "hochwertige Gemälde zu verkaufen",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Designerleuchten kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "TE Schnapsflaschen aus den 20ern",
+      "lang": "de"
+    },
+    {
+      "original": "antike italienische Möbel finden",
+      "lang": "de"
+    },
+    {
+      "original": "antike Schreibinstrumente kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "Exklusive Porzellanfiguren zum Kauf",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Sammlermünzen finden",
+      "lang": "de"
+    },
+    {
+      "original": "Vintage Weinflaschen zum Verkauf",
+      "lang": "de"
+    },
+    {
+      "original": "Seltene Briefmarkensammlung kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Designertaschen entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "höhenwertige alte Uhrwerke",
+      "lang": "de"
+    },
+    {
+      "original": "Historische Landkarten kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "Seltene politische Memorabilien finden",
+      "lang": "de"
+    },
+    {
+      "original": "Exklusive Kunst auf Nachfrage",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Designerbekleidung kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "IGZT Textilien entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "historische Schneidewerkzeuge kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "VLSC Japanischer Schwertkunst",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Sondereditionen an Uhren",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Goldmünzen zum Kauf",
+      "lang": "de"
+    },
+    {
+      "original": "antike deutsche Silberbestecke",
+      "lang": "de"
+    },
+    {
+      "original": "Seltene Automobilprototypen kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Architekturzeichnungen",
+      "lang": "de"
+    },
+    {
+      "original": "starre Silberware für den Verkauf",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Designerschuhe entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Echtlederwaren kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "KMN  hochgeschätzte Sammlerliteratur",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte historische Ansichtskarten",
+      "lang": "de"
+    },
+    {
+      "original": "high-end asiatische Keramik entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "begrenzte Serien von Luxusuhren",
+      "lang": "de"
+    },
+    {
+      "original": "antike Musikinstrumente finden",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Giclée-Kunstdrucke kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "seltene Juwelen von Sammlerwert",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Designerbilderrahmen",
+      "lang": "de"
+    },
+    {
+      "original": "Lithographien des frühen 20. Jahrhunderts",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Reliefs von Künstlern kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "hochwertiger Antiquitätenschmuck",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte deutsche Meißner Porzellankunst",
+      "lang": "de"
+    },
+    {
+      "original": "Seltene Möbel aus Kolonialzeit kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Künstlerboote zur Dekoration",
+      "lang": "de"
+    },
+    {
+      "original": "alte Kriegsmedaillen im Angebot",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive historische Kleidung entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "hochwertige Kelims kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "Seltene Schreibgeräte zum Verkauf",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Sammlerfahrräder finden",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive antike Beleuchtung entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "historische Messinstrumente kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive französische Weinetiketten",
+      "lang": "de"
+    },
+    {
+      "original": "antiquarische Designgläser finden",
+      "lang": "de"
+    },
+    {
+      "original": "seltene asiatische Rollbilder",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Terrakotta-Artefakte",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Sammlerkameras entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "historische Tauchausrüstung kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "seltene Kunst der Naivität",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Sammlertassen entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Armbanduhren für Sammler",
+      "lang": "de"
+    },
+    {
+      "original": "FGCX Kartographie moderner Zeiten",
+      "lang": "de"
+    },
+    {
+      "original": "seltene historische Pläne zum Kauf",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Lederarbeiten",
+      "lang": "de"
+    },
+    {
+      "original": "antike Schmuckstücke kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "seltene Bücher ersten Drucks finden",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Vasen aus Keramik",
+      "lang": "de"
+    },
+    {
+      "original": "seltene Flöten zum Verkauf",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Editionen von Skulpturen",
+      "lang": "de"
+    },
+    {
+      "original": "exklusive Mosaikwerke entdecken",
+      "lang": "de"
+    },
+    {
+      "original": "Historische Vogelschmuckkästen kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Plaza-Sammlungen",
+      "lang": "de"
+    },
+    {
+      "original": "hochwertige Vintage-Sonnenbrillen",
+      "lang": "de"
+    },
+    {
+      "original": "historische Perlenketten kaufen",
+      "lang": "de"
+    },
+    {
+      "original": "limitierte Editionen von Vasen",
+      "lang": "de"
+    },
+    {
+      "original": "historische Küchengeräte finden",
+      "lang": "de"
+    }
+  ]
+}
