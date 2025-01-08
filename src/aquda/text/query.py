@@ -28,11 +28,11 @@ PARAM_MAP = {
 
 PARAMS = list(PARAM_MAP.keys())
 
-def to_str(lang: set[str] | None, vtype: VariantType) -> list[str]:
+def to_str(lang: set[str] | None, vtype: VariantType) -> str:
     if vtype == VariantType.TRANSL:
-        return [f'{vtype.value} to {ln}' for ln in lang or []]
+        return ', '.join([f'{vtype.value} to {ln}' for ln in lang or []])
     else:
-        return [vtype.value]
+        return vtype.value
     
 
 def from_str(s: str) -> VariantType:
