@@ -14,7 +14,7 @@ class VariantType(Enum):
     TRANSL = 'Language translation'
     MODIF = 'Adding or replacement of common modifiers'
 
-PARAM_MAP = {
+PARAM_MAP: dict[str, VariantType] = {
     'lemma' : VariantType.LEMMA,
     'syn-repl': VariantType.SYN_REPL,
     'spelling': VariantType.SPELLING,
@@ -26,7 +26,8 @@ PARAM_MAP = {
     'modif': VariantType.MODIF
 }
 
-PARAMS = list(PARAM_MAP.keys())
+# CLI -a parameters
+PARAMS = set(PARAM_MAP.keys())
 
 def to_str(lang: set[str] | None, vtype: VariantType) -> str:
     if vtype == VariantType.TRANSL:

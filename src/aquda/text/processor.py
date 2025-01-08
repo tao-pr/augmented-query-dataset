@@ -43,9 +43,9 @@ class SpacyAugmentor(Augmentor):
     def __init__(self, apis: dict[str, object], vtypes: set[query.VariantType]):
         self.apis = apis
         self.vtypes = vtypes
-        self.VMAP: dict[str, Callable[[str, object, str], query.QueryVariant]] = {
-            'lemma': wordnet.lemmatize,
-            'syn-repl': wordnet.synonym_repl,
+        self.VMAP: dict[query.VariantType, Callable[[str, object, str], query.QueryVariant]] = {
+            query.VariantType.LEMMA: wordnet.lemmatize,
+            query.VariantType.SYN_REPL: wordnet.synonym_repl,
         }
         self.SUPPORTED_VTYPES = self.VMAP.keys()
 
