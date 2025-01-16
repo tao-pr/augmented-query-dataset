@@ -17,6 +17,8 @@ from ..text import query, processor
 @click.option('--size', type=int, default=10, help='Size of dataset to generate or augment per language')
 @click.option('--read', type=str, default=None, help='Specify an input query JSON file to process (UTF-8)')
 @click.option('--write', type=str, default=None, help='Specify an output JSON file to write to (UTF-8)')
+@click.option('--no-prompt-prefix', type=bool, default=False, is_flag=True,
+              help='Do not add custom prefix text to my topic. Only used by -gen')
 @click.option('-e', '--engine', type=click.Choice(['openai', 'spacy']), 
               default='spacy',
               help='Augmentation engine to use.' )
@@ -40,7 +42,8 @@ def run_cli(
     engine: str,
     augmentor: list[str],
     debug: bool,
-    size: int) -> int:
+    size: int,
+    no_prompt_prefix: bool) -> int:
     run_mode = get_run_mode(gen, aug, validate, merge)
 
     lang = set(lang)
@@ -49,7 +52,7 @@ def run_cli(
     if run_mode == run_modes.RunMode.UNKNOWN:
         return -1
     elif run_mode == run_modes.RunMode.GENERATOR:
-        return run_generator(lang, silence, debug, size, topic, write)
+        return run_generator(lang, silence, debug, size, topic, write, no_prompt_prefix)
     elif run_mode == run_modes.RunMode.AUGMENTOR:
         # Only translation with LLM takes language parameter
         if 'transl' not in augmentor or engine != 'openai':
@@ -76,13 +79,14 @@ def get_run_mode(gen: bool, aug: bool, validate: bool, merge: bool) -> run_modes
         return run_modes.RunMode.MERGER
 
 def run_generator(lang: list[str], silence: bool, debug: bool, size: int, 
-                  topic: str, output_path: str | None) -> query.QuerySet:
+                  topic: str, output_path: str | None,
+                  no_prompt_prefix: bool) -> query.QuerySet:
     client = agent.create()
     if not silence:
         print(f'Model to use: {os.environ.get(agent.OPENAI_MODEL)}')
         print(f'Generating {size} queries in {lang}')
 
-    completion = agent.gen_queries(client, lang, size, topic, debug, silence)
+    completion = agent.gen_queries(client, lang, size, topic, debug, silence, no_prompt_prefix)
     # taotodo handle failure
     out = completion.choices[0].message.parsed
     if debug:
